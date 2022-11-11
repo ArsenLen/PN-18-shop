@@ -10,13 +10,18 @@ import styles from './catalogpage.module.css'
 const CatalogPage = () => {
     return (
         <div>
-            <Header/>
-            <Breadcrumbs />
+            <Breadcrumbs title="Shop" />
             <Filter />
-            <div className='products-wrapper'>
-                {/* products.map(() => {}) */}
+            <div className={styles["products-wrapper"]}>
+               
                 <Product />
-                {/* кнопки пагинации */}
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
+                <Product />
             </div>
             <Info />
             <Footer />

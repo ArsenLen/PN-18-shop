@@ -1,0 +1,13 @@
+.card {
+    width: calc(25% - 30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: flex-start;
+}
+.img {
+    width: 100%;
+}
+.price {
+    font-size: 24px;
+}

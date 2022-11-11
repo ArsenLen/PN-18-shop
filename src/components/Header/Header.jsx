@@ -3,9 +3,10 @@ import styles from './header.module.css'
 import {Link} from 'react-router-dom'
 
 const Header = () => {
+    
     return (
         <header>
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper} >
                 <nav className={styles.nav}>
                     <Link to="/" className={styles.link}>Home</Link>
                     <Link to="/catalog" className={styles.link}>Shop</Link>
@@ -13,7 +14,7 @@ const Header = () => {
                     <Link to="/contact" className={styles.link}>Contact</Link>
                 </nav>
                 <div className={styles.icons}>
-                    <Link to="/profile" className={styles.icon}>
+                    <Link to="/account" className={styles.icon}>
                         <img src="/images/profile-icon.png" alt="" className={styles.icon} />
                     </Link>
                     <p className={styles.icon}>
