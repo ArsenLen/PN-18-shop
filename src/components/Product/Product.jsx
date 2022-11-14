@@ -1,15 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import products from '../../services/products';
 import styles from './product.module.css'
 
-const Product = () => {
+const Product = (props) => {
     return (
         <div className={styles.card}>
-            <img src="https://whispering-river-87788.herokuapp.com/images/asgaard-sofa.png" alt="" className={styles.img} />
-            <p className={styles.name}>
-                Trenton modular sofa_3
-            </p>
+            <img src={props.img} alt="" className={styles.img} />
+            <Link to={`/product/${props.id}`} className={styles.name}>
+               {props.title}
+            </Link>
             <h4 className={styles.price}>
-                Rs. 25,000.00
+                {props.price} KGS
             </h4>
         </div>
     );

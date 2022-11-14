@@ -6,6 +6,7 @@ import CatalogPage from './pages/CatalogPage/CatalogPage'
 import AccountPage from './pages/AccountPage/AccountPage';
 import HomePage from './pages/HomePage/HomePage'
 import Footer from './components/Footer/Footer';
+import SingleProductPage from './pages/SingleProductPage/SingleProductPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/account" element={<AccountPage />} />
+        <Route path="/product/:id" element={<SingleProductPage />} />
       </Routes>
       <Footer />
     </div>
