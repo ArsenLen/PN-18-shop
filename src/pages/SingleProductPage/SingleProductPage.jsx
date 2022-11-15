@@ -16,6 +16,7 @@ const SingleProductPage = () => {
     return (
         <div>
             <SingleProductCard
+                product={product}
                 img={product.img}
                 title={product.title}
                 descr={product.descr}
