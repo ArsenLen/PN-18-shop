@@ -23,9 +23,9 @@ const Header = () => {
                     <p className={styles.icon}>
                         <img src="/images/favorite-icon.png" alt="" className={styles.icon} />
                     </p>
-                    <p className={styles.icon}>
+                    <Link to="/cart" className={styles.icon}>
                         <img src="/images/basket-icon.png " alt="" className={styles.icon} />
-                    </p>
+                    </Link>
                 </div>
             </div>
         </header>

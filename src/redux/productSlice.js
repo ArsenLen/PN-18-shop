@@ -3,13 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const productSlice = createSlice({
     name : "cart",
     initialState : {
-        quantity : 0,
-        products : [],
+        quantityCart : 0, //диван и кровать - 2
+        products : [], // 3 дивана и 2 кровати
+        total : 0
     },
     reducers : {
         addToCart : (state, action) => {
-            state.quantity = action.payload.quantity
-            state.products.push(action.payload.product)     
+            state.quantityCart++
+            state.products.push(action.payload) 
+            state.total += action.payload.price * action.payload.quantity    
         }
     }
 })

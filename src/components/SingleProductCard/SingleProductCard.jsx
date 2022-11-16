@@ -4,6 +4,7 @@ import styles from './singleproductcard.module.css'
 import { addToCart } from '../../redux/productSlice'
 
 const SingleProductCard = ({ product, img, title, price, descr }) => {
+    console.log(product)
     const [quantity, setQuantity] = useState(1)
     const dispatch = useDispatch()
 
@@ -16,7 +17,7 @@ const SingleProductCard = ({ product, img, title, price, descr }) => {
     } 
 
     const handleAddProduct = () => {
-        dispatch(addToCart({product, quantity}))
+        dispatch(addToCart({...product, quantity}))
     }
     return (
         <div className={styles.card}>
