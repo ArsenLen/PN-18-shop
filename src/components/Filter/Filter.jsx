@@ -1,7 +1,12 @@
 import React from 'react';
 import styles from './filter.module.css'
 
-const Filter = () => {
+const Filter = ({sort, sortHandle}) => {
+
+    const handleSelect = (e) => {
+        // выбор option. e.target.value - это value выбранного option 
+        sortHandle(e.target.value)
+    }
     return (
         <div className={styles.filter}>
             <div className={styles.wrapper}>
@@ -17,9 +22,9 @@ const Filter = () => {
                     </p>
                     <p>
                         Sort by 
-                        <select name="" id="">
-                            <option value="" selected>Newest</option>
-                            <option value="">Price</option>
+                        <select value={sort} onChange={e => handleSelect(e)}>
+                            <option value="newest">Newest</option>
+                            <option value="price">Price</option>
                         </select>
                     </p>    
                 </div>    

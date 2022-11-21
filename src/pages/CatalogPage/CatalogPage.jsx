@@ -10,17 +10,31 @@ import productService from '../../services/products'
 
 const CatalogPage = () => {
     const [products, setProducts] = useState([])
+    const [sorted, setSorted] = useState("price")
+    
     useEffect(() => {
         productService
             .getProducts()
-            .then(res => setProducts(res.data))
+            .then(res => {
+                setProducts(res.data)
+            })
             .catch(err => console.log(err))
     }, [])
-    console.log(products);
+
+    useEffect(() => {
+        setProducts([].concat(products).sort((a, b) => {
+            if(sorted == "price") {
+                return a.price - b.price
+            }
+            return new Date(a.createdAt) - new Date(b.createdAt)
+        }))
+    }, [sorted])
+    
+
     return (
         <div>
             <Breadcrumbs title="Shop" />
-            <Filter />
+            <Filter sort={sorted} sortHandle={setSorted} />
             <div className={styles["products-wrapper"]}>
                 { products.map(product => {
                    return <Product
@@ -30,6 +44,7 @@ const CatalogPage = () => {
                         title={product.title}
                         descr={product.descr}
                         price={product.price}
+                        date={product.createdAt}
                     />
                 }) }
             </div>

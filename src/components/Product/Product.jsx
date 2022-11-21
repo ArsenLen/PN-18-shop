@@ -13,6 +13,7 @@ const Product = (props) => {
             <h4 className={styles.price}>
                 {props.price} KGS
             </h4>
+            <p>{new Date(props.date).toString()}</p>
         </div>
     );
 };
