@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage/HomePage'
 import Footer from './components/Footer/Footer';
 import SingleProductPage from './pages/SingleProductPage/SingleProductPage';
 import CartPage from './pages/CartPage/CartPage';
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/account" element={<AccountPage />} />
         <Route path="/product/:id" element={<SingleProductPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
       <Footer />
     </div>

@@ -1,13 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import CartProduct from '../../components/CartProduct/CartProduct';
 import styles from './cartpage.module.css'
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
-import CheckoutForm from '../../components/CheckoutForm/CheckoutForm';
+
 //4242 4242 4242 4242
-const stripePromise = loadStripe('pk_test_51LY447HWg33SQmOYkw5NDamYDIC6nmq6E8TuAzs8BFgElOjFEhM8GjZxjoIguoAhF07s5XgS346RXTd4Fx4xz9rX00cYDOothX');
 
 const CartPage = () => {
     const products = useSelector(state => state.product.products)
@@ -46,12 +44,9 @@ const CartPage = () => {
               <p className={styles.total}>
                 Total <span>{total}</span>
               </p>
-              <button className={styles.checkout}>Check Out</button>
+              <Link to="/checkout" className={styles.checkout}>Check Out</Link>
             </div>
           </div>
-          <Elements stripe={stripePromise}>
-                <CheckoutForm />
-          </Elements>
         </section>
       </>
     );
