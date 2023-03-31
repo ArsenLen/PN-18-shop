@@ -3,16 +3,17 @@ import {CardElement, useElements, useStripe} from '@stripe/react-stripe-js';
 import styles from './checkout.module.css'
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 
 const cardStyle = {
     style: {
       base: {
-        color: "white",
+        color: "black",
         fontFamily: 'Arial, sans-serif',
         fontSmoothing: "antialiased",
-        fontSize: "16px",
+        fontSize: "24px",
         "::placeholder": {
-          color: "white"
+          color: "black"
         }
       },
       invalid: {
@@ -50,14 +51,20 @@ const CheckoutForm = () => {
     }
     return (
       <>
-      <h1>Вы купили продуктов на сумму: {total}</h1>
+      <Breadcrumbs />
+      <div className={styles.wrapper}>
       <form className={styles.card} onSubmit={handleSubmit}>
         <CardElement options={cardStyle} />
-        <button>Submit</button>
-        {
-          user?.status === "seller" && <Link></Link>
-        }
+        <button>Pay</button>
       </form>
+      {/* <h1>Вы купили продуктов на сумму: {total}</h1> */}
+      <div className={styles["product-wrapper"]}>
+        <p className={styles["product-title"]}> Product  <span>Subtotal</span> </p>
+        <p className={styles["product-name"]}>  Asgaard sofa  <span>Rs. 250000</span> </p>
+        <p className={styles["product-subtotal"]}>  Asgaard sofa  <span>Rs. 250000</span> </p>
+        <p className={styles["product-total"]}> Total  <span>Rs. 250000</span> </p>
+      </div>
+      </div>
       </>
     );
 };

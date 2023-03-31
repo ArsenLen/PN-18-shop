@@ -4,16 +4,19 @@ import products from '../../services/products';
 import styles from './product.module.css'
 
 const Product = (props) => {
+    console.log(props.gridView)
     return (
-        <div className={styles.card}>
+        <div className={props.gridView ? styles.card : styles["card-list"]}>
             <img src={props.img} alt="" className={styles.img} />
-            <Link to={`/product/${props.id}`} className={styles.name}>
-               {props.title}
-            </Link>
-            <h4 className={styles.price}>
-                {props.price} KGS
-            </h4>
-            <p>{new Date(props.date).toString()}</p>
+            <div className={styles.info}>
+                <Link to={`/product/${props.id}`} className={styles.name}>
+                {props.title}
+                </Link>
+                <h4 className={styles.price}>
+                    {props.price} KGS
+                </h4>
+                <p>{new Date(props.date).toString()}</p>
+            </div>
         </div>
     );
 };

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styles from './singleproduct.module.css'
 import productService from '../../services/products'
 import SingleProductCard from "../../components/SingleProductCard/SingleProductCard"
+import Modal from '../../components/Modal/Modal';
 
 const SingleProductPage = () => {
     const [product, setProduct] = useState({})

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './header.module.css'
 import {Link} from 'react-router-dom'
+import Modal from '../Modal/Modal';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-    
+    const [isOpen, setIsOpen] = useState(false)
+    const quantityCart = useSelector(state => state.product.quantityCart)
     return (
+        <>
         <header>
             <div className={styles.wrapper} >
                 <nav className={styles.nav}>
@@ -23,12 +27,15 @@ const Header = () => {
                     <p className={styles.icon}>
                         <img src="/images/favorite-icon.png" alt="" className={styles.icon} />
                     </p>
-                    <Link to="/cart" className={styles.icon}>
+                    <p onClick={() => setIsOpen(!isOpen)} className={styles.icon}>
+                        {quantityCart !== 0 && (<span className={styles.quantity}>{quantityCart}</span>)}
                         <img src="/images/basket-icon.png " alt="" className={styles.icon} />
-                    </Link>
+                    </p>
                 </div>
             </div>
         </header>
+        {<Modal isOpen={isOpen} setIsOpen={() => setIsOpen(!isOpen)} />}
+        </>
     );
 };
 

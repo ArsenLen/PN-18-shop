@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './filter.module.css'
 
-const Filter = ({sort, sortHandle}) => {
+const Filter = ({sort, sortHandle, setGridView}) => {
 
     const handleSelect = (e) => {
         // выбор option. e.target.value - это value выбранного option 
@@ -13,6 +13,8 @@ const Filter = ({sort, sortHandle}) => {
                 <div className={styles["icon-wrapper"]}>
                     <img src="/images/filter-icon.png" alt="" />
                     <p className={styles["filter-text"]}>Filter</p>
+                    <img onClick={() => setGridView(true)} src="/images/grid-view-icon.png" alt="" />
+                    <img onClick={() => setGridView(false)} src="/images/list-view-icon.png" alt="" />
                     <p className={styles["amount-text"]}>Showing 1-16 of 32 results</p>
                 </div>
                 <div className={styles.controls}>
